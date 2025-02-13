@@ -1,12 +1,20 @@
 Movie Chatbot
+
 Hey there! Welcome to the Movie Chatbot project. This little bot lets you chat with your favorite movie characters, using real dialogues from movie scripts. If it finds a matching line from the script, it'll reply with that. If not, it’ll use some AI magic to come up with a response.
 
+
 What This Does
+
 Finds real movie quotes: When you ask a character something, it tries to find a matching line from the movie script.
+
 AI fallback: If it can't find an exact match, it uses AI to generate a response.
+
 Flask-powered API: The chatbot is built on Flask, so you can interact with it via a simple API.
+
 What You’ll Need
+
 Before you dive in, you’ll need a few things set up on your machine:
+
 
 Python 3.x (duh)
 SQLite (it comes with Python)
