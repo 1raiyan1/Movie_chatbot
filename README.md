@@ -1,106 +1,69 @@
 Movie Chatbot
 
-Hey there! Welcome to the Movie Chatbot project. This little bot lets you chat with your favorite movie characters, using real dialogues from movie scripts. If it finds a matching line from the script, it'll reply with that. If not, it’ll use some AI magic to come up with a response.
+Overview
 
+Movie Chatbot is an AI-powered conversational agent that helps users find movie recommendations, details, and insights through a chat-based interface. It leverages WebSockets for real-time communication and a database for storing chat history.
 
-What This Does
+Features
 
-Finds real movie quotes: When you ask a character something, it tries to find a matching line from the movie script.
+Real-time WebSocket Communication: Provides seamless interaction between users and the chatbot.
 
-AI fallback: If it can't find an exact match, it uses AI to generate a response.
+Movie Search & Recommendations: Users can ask for movie suggestions based on genres, actors, or mood.
 
-Flask-powered API: The chatbot is built on Flask, so you can interact with it via a simple API.
+Database Integration: Stores chat history for improved user experience.
 
-What You’ll Need
+FastAPI Backend: The backend is built using FastAPI for high-performance responses.
 
-Before you dive in, you’ll need a few things set up on your machine:
+Deployment-Ready: Can be deployed on cloud platforms like AWS, Railway, or any other hosting provider.
 
+Installation
 
-Python 3.x (duh)
-SQLite (it comes with Python)
-Flask (to power the API)
-Requests (for testing the API)
-How to Get It Running
-1. Clone the Repo
-First things first, clone the project to your local machine:
+Prerequisites
 
-bash
-Copy
-Edit
+Python 3.10+
+
+Git
+
+Virtual Environment (optional but recommended)
+
+Setup
+
+Clone the repository:
+
 git clone https://github.com/1raiyan1/Movie_chatbot.git
+
+Navigate to the project directory:
+
 cd Movie_chatbot
-2. Install Dependencies
-Create a virtual environment and install the necessary packages:
 
-bash
-Copy
-Edit
-python -m venv venv
-source venv/bin/activate   # On Windows, use venv\Scripts\activate
+Install dependencies:
+
 pip install -r requirements.txt
-3. Prepare the Database
-Now, you’ll need to parse the movie script into a database. If you have the script (like iron_man_script.txt), place it in the project’s root folder and run this command:
 
-bash
-Copy
-Edit
-python parse_script.py
-This will go through the entire script and store the dialogues for each character in a database.
+Run the server:
 
-4. Start the Server
-Now, it's time to fire up the server:
+python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
-bash
-Copy
-Edit
-python app.py
-Your chatbot will be up and running at http://127.0.0.1:5000.
+Usage
 
-How to Talk to the Bot
-POST /chat
-What Does It Do?
-You send it the name of a character and what you want to say, and it’ll check if the character has a matching line in the movie script. If it does, it replies with that. If not, it’ll make up a response using some AI.
+Open test.html in a browser to interact with the chatbot.
 
-Example Request
-json
-Copy
-Edit
-{
-  "character": "Iron Man",
-  "user_message": "I am Iron Man"
-}
-Example Response
-If it finds the line in the script:
+Send messages, and the bot will respond with movie recommendations and details.
 
-json
-Copy
-Edit
-{
-  "character": "Iron Man",
-  "response": "Iron Man says: I am Iron Man"
-}
-If there’s no match, it’ll try something like:
+Deployment
 
-json
-Copy
-Edit
-{
-  "character": "Iron Man",
-  "response": "Iron Man says: I am the one who builds the future!"
-}
-Testing the API
-You can test the chatbot using curl or Postman.
+To deploy on AWS or any cloud platform:
 
-Here’s how you’d do it with curl:
+Set up a virtual machine or container service.
 
-bash
-Copy
-Edit
-curl -X POST "http://127.0.0.1:5000/chat" -H "Content-Type: application/json" -d '{"character": "Iron Man", "user_message": "I am Iron Man"}'
-What’s Next?
-Multi-character chats: Right now, it’s focused on one character at a time. Imagine what it could do with multiple characters!
-Improved AI: We can make the AI even better by using more advanced models to handle when there’s no match in the script.
-More movie scripts: This is just the start—let’s add more scripts for more characters.
+Install dependencies as mentioned above.
+
+Run the server and configure the domain for public access.
+
+Contribution
+
+Feel free to contribute by opening issues or pull requests!
+
 License
-Feel free to use and modify this project! It’s open-source under the MIT License. Check out the LICENSE file for more details.
 
+This project is open-source under the MIT License.
